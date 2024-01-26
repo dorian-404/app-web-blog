@@ -4,22 +4,36 @@ require 'functions.php';
 
 //require 'router.php';
 
-// connection to our mysql database
-new PDO('mysql',);
+class Database {
 
-class Person {
-    public $name;
-    public $age;
+    // proprietes
+    public $connection;
 
-    public function respirer() {
-        echo $this->name . ' est entrain de respirer ';
+    // constructeur
+    public function __construct() {
+           // connection to our mysql database dsn , veut dire data source name
+           $dsn = "mysql:host=localhost;dbname=myapp;charset=utf8mb4;";
+
+           // creation de la nouvelle instance 
+          $this->connection= new PDO($dsn, 'root');
     }
 
+    public function query($query) {
+      
+        // On prepare la premiere requete a executer 
+        $statement = $this->connection->prepare($query);
+        $statement->execute();
+
+        // On va chercher tous les resultats dans un tableau associatif 
+         return $statement->fetch(PDO::FETCH_ASSOC);  
+    }
 }
 
-$person = new Person();
+$db = new Database();
+$result = $db->query("select * from posts where id = 1");
 
-$person->name = 'Eren Jaeger';
-$person->age = '22';
 
-$person->respirer();
+foreach ($result as $row) {
+    echo "<li>" . $row['title'] . "</li>";
+}
+
