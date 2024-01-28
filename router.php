@@ -5,13 +5,6 @@ $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 var_dump($url);
 
-// if ($url === '/tuto-php/') {
-//     require 'controllers/index.php';
-// } else if ($url ===  '/tuto-php/contact') {
-//     require 'controllers/contact.php';
-// } else if ($url === '/tuto-php/about') {
-//     require 'controllers/about.php';
-// }
 
 // Declaration des routes 
 $routes = [
