@@ -8,4 +8,6 @@
 
     # Redirige toutes les demandes vers index.php
     RewriteRule ^ index.php [L]
+    
+
 </IfModule>
