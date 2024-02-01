@@ -6,25 +6,21 @@ class Database {
     public $connection;
 
     // constructeur
-    public function __construct() {
+    public function __construct($config, $username = 'root', $password = '') {
 
-        $config = [
-            "host"=> "localhost",
-            "dbname"=> "myapp",
-            "charset"=> "utf8mb4",  
-        ] ;
-           // connection to our mysql database dsn , veut dire data source name
-           $dsn = "mysql:host={$config['host']};dbname={$config['dbname']};charset={$config['charset']};";
+        //connection to our mysql database dsn , veut dire data source nam
+        $dsn = 'mysql:' . http_build_query($config, '', ';');
+           //$dsn = "mysql:host={$config['host']};dbname={$config['dbname']};charset={$config['charset']};";
 
-           // creation de la nouvelle instance 
-          $this->connection= new PDO($dsn, 'root');
+           // creation de la nouvelle instance PDO
+          $this->connection= new PDO($dsn, $username, $password);
     }
 
-    public function query($query) {
+    public function query($query, $params = []) {
       
         // On prepare la premiere requete a executer 
         $statement = $this->connection->prepare($query);
-        $statement->execute();
+        $statement->execute($params);
 
         // On va chercher tous les resultats dans un tableau associatif 
          return $statement;

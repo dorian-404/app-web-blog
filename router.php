@@ -3,13 +3,14 @@
 // On recuupere l'url
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-var_dump($url);
+//var_dump($url);
 
-
-// Declaration des routes 
+ 
+// Declaration des routes : endpoint
 $routes = [
     '/tuto-php/'=> 'controllers/index.php',
     '/tuto-php/contact'=> 'controllers/contact.php',
+    '/tuto-php/notes'=> 'controllers/notes.php',
     '/tuto-php/about'=> 'controllers/about.php',
 ];
 
