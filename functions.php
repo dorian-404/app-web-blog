@@ -8,3 +8,8 @@ function dd($items) {
     die();
 }
 
+function authorize($condition){
+    if (! $condition) {
+        abort(Response::FORBIDDEN);
+    }
+}

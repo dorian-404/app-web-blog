@@ -4,6 +4,7 @@ class Database {
 
     // proprietes
     public $connection;
+    public $statement;
 
     // constructeur
     public function __construct($config, $username = 'root', $password = '') {
@@ -19,10 +20,32 @@ class Database {
     public function query($query, $params = []) {
       
         // On prepare la premiere requete a executer 
-        $statement = $this->connection->prepare($query);
-        $statement->execute($params);
+        $this->statement = $this->connection->prepare($query);
+        $this->statement->execute($params);
 
         // On va chercher tous les resultats dans un tableau associatif 
-         return $statement;
+         return $this;
+
+
+    }
+
+    public function find(){
+        return $this->statement->fetch();
+    }
+
+    public function findOrFail() {
+        $result = $this->find();
+
+        // on verifie si la note n'existe pas dans notre database
+        if (!$result) {
+             abort();
+        }
+
+        return $result;
+
+    }
+
+    public function get() {
+        return $this->statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
