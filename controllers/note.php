@@ -5,15 +5,27 @@ $config = require('config.php');
 $db = new Database($config);
 
 $heading = "Note";
+$currenUserId = 2;
 
-dd($_GET['id']);
+//dd($_GET['id']);
 $id = $_GET['id'];
 
-$notes = $db->query('SELECT * FROM notes WHERE users_id = :id', ['users_id' => $id])->fetchAll(PDO::FETCH_ASSOC);
+// le id repesente ici ma correspondance 
+$note = $db->query('SELECT * FROM notes WHERE noteId = :id',['id' => $id])->fetch(PDO::FETCH_ASSOC);
 
 //dd($notes);
+// on verifie si la note n'existe pas dans notre database
+if (!$note) {
+    abort();
+}
 
-$filePath = dirname(__FILE__) . '/../views/notes.view.php';
+// on verfie que la note n'est pas utilise par l'utilisateur actuelle
+if ($note['users_id'] != $currenUserId) {
+    abort(Response::FORBIDDEN);
+}
+
+
+$filePath = dirname(__FILE__) . '/../views/note.view.php';
 
 
 require $filePath;

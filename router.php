@@ -11,8 +11,8 @@ $routes = [
     '/tuto-php/'=> 'controllers/index.php',
     '/tuto-php/contact'=> 'controllers/contact.php',
     '/tuto-php/notes'=> 'controllers/notes.php',
-    '/tuto-php/note'=> 'controllers/note.php',
     '/tuto-php/about'=> 'controllers/about.php',
+    '/tuto-php/note'=> 'controllers/note.php'
 ];
 
 // On peut representer ceci en un tableau associatif de nos url et nos controllers correspondants 
@@ -36,7 +36,6 @@ function abort($code = 404) {
     die();
 
 }
-
 
 
 routeToController($url,$routes);
