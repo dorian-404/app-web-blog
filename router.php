@@ -5,15 +5,8 @@ $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 //var_dump($url);
 
- 
-// Declaration des routes : endpoint
-$routes = [
-    '/tuto-php/'=> 'controllers/index.php',
-    '/tuto-php/contact'=> 'controllers/contact.php',
-    '/tuto-php/notes'=> 'controllers/notes.php',
-    '/tuto-php/about'=> 'controllers/about.php',
-    '/tuto-php/note'=> 'controllers/note.php'
-];
+ $routes = require('routes.php');
+
 
 // On peut representer ceci en un tableau associatif de nos url et nos controllers correspondants 
 function routeToController($url, $routes) {
