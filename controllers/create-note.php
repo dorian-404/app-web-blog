@@ -9,6 +9,9 @@ $db = new Database($config);
 
 $heading = 'Create Note';
 
+// email valide 
+
+
 //dd($_SERVER);
 // effetue un envoie de donnees vers ma db, POST 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
