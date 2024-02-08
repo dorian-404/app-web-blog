@@ -42,5 +42,5 @@ $errors = [];
 
 
 
-require 'views/create-note.view.php';
+require 'views/notes/create.view.php';
 

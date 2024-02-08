@@ -10,8 +10,10 @@ $notes = $db->query('SELECT * FROM notes WHERE users_id = 2')->get();
 
 //dd($notes);
 
-$filePath = dirname(__FILE__) . '/../views/notes.view.php';
+// $filePath = dirname(__FILE__) . '../views/notes/index.view.php';
 
 
-require $filePath;
+// require $filePath;
+
+require_once('../views/notes/index.view.php');
 
