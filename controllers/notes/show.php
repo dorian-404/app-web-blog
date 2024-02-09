@@ -19,7 +19,7 @@ authorize($note['users_id'] == $currenUserId);
 // on verfie que la note n'est pas utilise par l'utilisateur actuelle
 
 
-$filePath = dirname(__FILE__) . '/../views/notes/show.view.php';
+$filePath = dirname(__FILE__) . './../../views/notes/show.view.php';
 
 
 require $filePath;
