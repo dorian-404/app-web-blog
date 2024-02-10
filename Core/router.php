@@ -5,7 +5,7 @@
 
  //var_dump($url);
 
- $routes = require('routes.php');
+ $routes = require('../routes.php');
 
 
 // On peut representer ceci en un tableau associatif de nos url et nos controllers correspondants 

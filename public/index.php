@@ -8,10 +8,10 @@
 
 // var_dump($url);
 
-require  '../functions.php';
-require  '../Database.php' ;
-require '../Response.php';
-require  '../router.php';
+require  '../Core/functions.php';
+require  '../Core/Database.php' ;
+require '../Core/Response.php';
+require  '../Core/router.php';
 
 // 
 
