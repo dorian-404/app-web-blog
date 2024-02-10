@@ -1,6 +1,6 @@
 <?php
 
-$config = require('config.php');
+$config = require('../config.php');
 //creation d'un ouvel objet databse  
 $db = new Database($config);
 

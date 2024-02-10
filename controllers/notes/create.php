@@ -1,8 +1,8 @@
 <?php
 
-require 'Validator.php';
+require '../Validator.php';
 
-$config = require('config.php');
+$config = require('../config.php');
 //creation d'un ouvel objet databse  
 $db = new Database($config);
 
@@ -40,7 +40,11 @@ $errors = [];
 
 }
 
+$filePath = dirname(__FILE__) . './../../views/notes/create.view.php';
 
 
-require 'views/notes/create.view.php';
+require $filePath;
+
+
+//require './../../views/notes/create.view.php';
 
