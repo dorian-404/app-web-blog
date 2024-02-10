@@ -1,9 +1,9 @@
 <?php
 
 // On recuupere l'url
-$url = parse_url($_SERVER['REQUEST_URI'])['path'];
+ $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-//var_dump($url);
+ var_dump($url);
 
  $routes = require('routes.php');
 

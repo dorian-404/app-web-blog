@@ -13,3 +13,7 @@ function authorize($condition){
         abort(Response::FORBIDDEN);
     }
 }
+
+// function basePath ($path) {
+//     return BASE_PATH . $path;
+// }

@@ -7,7 +7,8 @@
     RewriteCond %{REQUEST_FILENAME} !-d
 
     # Redirige toutes les demandes vers index.php
-    RewriteRule ^ index.php [L]
-    
+    #RewriteRule ^ index.php [L]
+    RewriteRule ^index/(.*)$ public/$1 [L]
+    RewriteRule ^(.*)$ public/index.php [L]
 
 </IfModule>
