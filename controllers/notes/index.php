@@ -1,5 +1,8 @@
 <?php
 
+// Appelle de notre namespace
+use Core\Database;
+
 $config = require('../config.php');
 //creation d'un ouvel objet databse  
 $db = new Database($config);

@@ -1,5 +1,9 @@
 <?php
 
+// Namespacing
+namespace Core;
+use PDO;
+
 class Database {
 
     // proprietes

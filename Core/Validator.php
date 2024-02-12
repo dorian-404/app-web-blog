@@ -1,5 +1,9 @@
 <?php
 
+// Creation de notre espace de noms
+namespace Core;
+
+
 Class Validator { 
 
     // fonction pure 

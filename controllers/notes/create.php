@@ -1,6 +1,10 @@
 <?php
 
-require '../Validator.php';
+use Core\Database;
+use Core\Validator;
+
+
+require '../Core/Validator.php';
 
 $config = require('../config.php');
 //creation d'un ouvel objet databse  
