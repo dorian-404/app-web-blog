@@ -10,6 +10,7 @@ $config = require('../config.php');
 //creation d'un ouvel objet databse  
 $db = new Database($config);
 
+var_dump($_POST);
 
 $heading = 'Create Note';
 

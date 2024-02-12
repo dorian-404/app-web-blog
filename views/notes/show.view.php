@@ -7,8 +7,14 @@
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <p>
-            <?= $note['body'] ?>
+            <?= htmlspecialchars( $note['body']) ?>
         </p> 
+
+        <form method="POST">
+            <input type="hidden" name="id" value="<?= $note['noteId'] ?>"><br/>
+            <button class="text-sm text-red-500">Delete a note</button>
+        </form>
+
         <p>
             <a href="./notes" class="text-blue-500 hover:underline"> return </a>
         </p>  
