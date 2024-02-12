@@ -12,7 +12,7 @@
 function routeToController($url, $routes) {
     // Array_keys_exists
  if (array_key_exists($url, $routes)) {
-    require $routes[$url];
+    require __DIR__. '/../'. ($routes[$url]);
  } else { 
     abort();
  }
@@ -25,7 +25,7 @@ function abort($code = 404) {
     http_response_code($code);
 
     //require "./views/{$code}.php";
-    require_once(__DIR__ . "/views/{$code}.php");
+    require("../views/404.php");
 
     die();
 
