@@ -21,7 +21,6 @@ $currenUserId = 2;
     // verfication de l'utilisaateur
     authorize($note['users_id'] == $currenUserId);
 
-
     // formulaire a ete envoye, supprimer la note actuelle 
     $db->query('DELETE FROM notes WHERE noteId = :id', [
         'id' => $_POST['id']

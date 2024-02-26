@@ -19,6 +19,7 @@ $errors = [];
     //     $errors['body'] = 'The body can not be more than 1000 characters';
     //  }
 
+    // Verfier si y'a des erreurs 
      if(empty($errors)) {
         $db->query('INSERT INTO notes(body, users_id) VALUES(:body, :users_id)', [
             'body'=> $_POST['body'],

@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Core;
 
 class Router {
@@ -9,86 +10,65 @@ class Router {
 
 
    // Methodes 
-   public function get($url, $controllerPath) {
+
+   public function add($method, $url, $controllerPath) {
 
       $this->routes[] = [
          'url' => $url,
          'controllerPath' => $controllerPath,
-         'method' => 'GET'
+         'method' => $method
       ];
+   }
 
+   public function get($url, $controllerPath) {
+      $this->add('GET', $url, $controllerPath);
    }
 
    public function post($url, $controllerPath) {
-
-      $this->routes[] = [
-         'url' => $url,
-         'controllerPath' => $controllerPath,
-         'method' => 'POST'
-      ];
+      $this->add('POST', $url, $controllerPath);
    }
 
    public function delete($url, $controllerPath) {
-
-      $this->routes[] = [
-         'url' => $url,
-         'controllerPath' => $controllerPath,
-         'method' => 'DELETE'
-      ];
+      $this->add('DELETE', $url, $controllerPath);
    }
 
 
    public function patch($url, $controllerPath) {
-
-      $this->routes[] = [
-         'url' => $url,
-         'controllerPath' => $controllerPath,
-         'method' => 'PATCH'
-      ];
+      $this->add('PATCH', $url, $controllerPath);
    }
 
    public function put($url, $controllerPath) {
-
-      $this->routes[] = [
-         'url' => $url,
-         'controllerPath' => $controllerPath,
-         'method' => 'PUT'
-      ];
+      $this->add('PUT', $url, $controllerPath);
    }
+
+   public function route($url, $method) {
+
+      foreach($this->routes as $route) {
+          // pour chaque item on verifie que notre url matches avec un url que the request method match aussi
+         if ($route['url'] === $url && $route['method'] === strtoupper($method)) {
+            return require __DIR__ . '/../' . ($route['controllerPath']);
+         }
+      }
+
+      $this->abort();
+
+   }
+    protected function abort($code = 404) {
+    
+    http_response_code($code);
+
+    //require "./views/{$code}.php";
+    require("../views/{$code}.php");
+
+    die();
+
+}
 }
 
 
-// // On recuupere l'url
-//  $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-//  $routes = require('../routes.php');
-
-
-// // On peut representer ceci en un tableau associatif de nos url et nos controllers correspondants 
-// function routeToController($url, $routes) {
-//     // Array_keys_exists
-//  if (array_key_exists($url, $routes)) {
-//     require __DIR__. '/../'. ($routes[$url]);
-//  } else { 
-//     abort();
-//  }
-
-// }
-
-// // En cas de page inconnu
-// function abort($code = 404) {
-    
-//     http_response_code($code);
-
-//     //require "./views/{$code}.php";
-//     require("../views/{$code}.php");
-
-//     die();
-
-// }
 
 // //./views/{$code}.php
-// routeToController($url,$routes);
 
 
 
