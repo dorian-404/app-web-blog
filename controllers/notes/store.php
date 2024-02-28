@@ -1,17 +1,20 @@
 <?php
 
-use Core\Validator;
+use \Core\Validator;
 use Core\Database;
+// faut faire un require pour avoir le validator
+require '../Core/Validator.php';
+
 
 $config = require('../config.php');
 //creation d'un ouvel objet databse  
 $db = new Database($config);
 
 $errors = [];
-
+ 
 
      // validation qu'on entre quelque chose dans notre body et de la taille du charactere 
-     if (! Validator::validate($_POST['body'], 1, 1000)) { 
+     if (!Validator::validate($_POST['body'], 1, 1000)) { 
         $errors['body'] = 'A body of no more than 1000 is required';
      }
 

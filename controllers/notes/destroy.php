@@ -27,9 +27,9 @@ $currenUserId = 2;
     ]);
     // redirection vers la page des notes
     header('location: /tuto-php/notes');
-    exit();
+    die();
 
-$filePath = dirname(__FILE__) . './../../views/notes/show.view.php';
+//$filePath = dirname(__FILE__) . './../../views/notes/show.view.php';
 
 
-require $filePath;
+//require $filePath;
