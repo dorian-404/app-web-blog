@@ -29,7 +29,8 @@ $currenUserId = 2;
     header('location: /tuto-php/notes');
     die();
 
-//$filePath = dirname(__FILE__) . './../../views/notes/show.view.php';
+    //var_dump($heading);
+// $filePath = dirname(__FILE__) . './../../views/notes/show.view.php';
 
 
-//require $filePath;
+// require $filePath;

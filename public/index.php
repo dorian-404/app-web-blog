@@ -26,8 +26,9 @@ $root = new Router();
  $url = parse_url($_SERVER['REQUEST_URI'])['path'];
  $routes = require('../routes.php');
 
+ // par defaut un form ne recoit que le get et le post , on a donc besoin de quelque chose pour lui dire que c'est plutot la methode delete qu'on veut 
  // on verfie que la methode post contient bien la methode qu'on lui a envoye sinon prend la methode par defaut
-$method =  isset($_POST['method']) ? $_POST['method'] : $_SERVER['REQUEST_METHOD'];
+$method =  isset($_POST['_method']) ? $_POST['_method'] : $_SERVER['REQUEST_METHOD'];
 
  $root->route($url, $method);
 
