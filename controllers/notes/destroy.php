@@ -3,6 +3,7 @@
 // utilisation de notre namespace
 use Core\Database;
 
+// chaque qu'on construit notre base de donnees on lui passe les config necessaire.
 
 $config = require('../config.php');
 //creation d'un ouvel objet databse  

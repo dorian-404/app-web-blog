@@ -18,6 +18,7 @@ require  '../Core/Database.php' ;
 require '../Core/Response.php';
 //require  '../Core/router.php';
 
+require '../boostrap.php';
 
 // creation d'une instance de la classe Route
 $root = new Router();
