@@ -1,13 +1,16 @@
 <?php
 
 // utilisation de notre namespace
-use Core\Database;
-
+use Core\App;
 // chaque qu'on construit notre base de donnees on lui passe les config necessaire.
 
-$config = require('../config.php');
-//creation d'un ouvel objet databse  
-$db = new Database($config);
+// $config = require('../config.php');
+// //creation d'un ouvel objet databse  
+// $db = new Database($config);
+
+$db = App::getContainer()->resolve('Core\Database');
+
+//dd($db);
 
 $heading = "Note";
 $currenUserId = 2;

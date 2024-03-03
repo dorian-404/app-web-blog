@@ -1,14 +1,16 @@
 <?php
 
+use Core\App;
 use \Core\Validator;
-use Core\Database;
 // faut faire un require pour avoir le validator
 require '../Core/Validator.php';
 
 
-$config = require('../config.php');
-//creation d'un ouvel objet databse  
-$db = new Database($config);
+// $config = require('../config.php');
+// //creation d'un ouvel objet databse  
+// $db = new Database($config);
+
+$db = App::getContainer()->resolve('Core\Database');
 
 $errors = [];
  

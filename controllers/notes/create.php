@@ -1,11 +1,14 @@
 <?php
 
-use Core\Database;
+
 use Core\Validator;
 require '../Core/Validator.php';
 
-$config = require('../config.php');
-$db = new Database($config);
+// $config = require('../config.php');
+// $db = new Database($config);
+use Core\App;
+$db = App::getContainer()->resolve('Core\Database');
+
 $heading = 'Create Note';
 
 // effetue un envoie de donnees vers ma db, POST 

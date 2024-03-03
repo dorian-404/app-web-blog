@@ -5,6 +5,7 @@ use Core\Database;
 use Core\Container;
 // faut faire un require pour avoir le validator
 require '../Core/Container.php';
+require '../Core/App.php';
 
 $container = new Container();
 
@@ -16,5 +17,5 @@ $container->bind('Core\Database', function() {
     return new Database($config);
 });
 
-
+// on set notre conteneur 
 App::setContainer($container);
