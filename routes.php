@@ -12,6 +12,7 @@ $root->get('/tuto-php/note', 'controllers/notes/show.php');
 $root->delete('/tuto-php/note', 'controllers/notes/destroy.php');
 
 $root->get('/tuto-php/note/edit', 'controllers/notes/edit.php');
+$root->patch('/tuto-php/note', 'controllers/notes/update.php');
 
 $root->get('/tuto-php/notes/create-note', 'controllers/notes/create.php');
 $root->post('/tuto-php/notes', 'controllers/notes/store.php');
